@@ -27,7 +27,7 @@ SETUP_KWARGS = {
     'name': 'pyjnius',
     'version': VERSION,
     'url': "https://github.com/kivy/pyjnius",
-    'packages': ['jnius'],
+    'packages': ['jnius', 'android'],
     'py_modules': ['jnius_config', 'setup', 'setup_sdist', 'jnius.env'],
     'ext_package': 'jnius',
     'package_data': {
