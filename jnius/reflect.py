@@ -202,6 +202,16 @@ def autoclass(clsname, include_protected=True, include_private=True):
     if cls:
         return cls
 
+    if clsname.endswith('$mipmap') or clsname.endswith('$drawable'):
+        # Hack to work around kivy/plyer#669
+        PythonActivity = autoclass('org.panda3d.android.PythonActivity')
+        act = PythonActivity.mActivity
+        pkgname = act.getPackageName()
+        if clsname.startswith(pkgname + '.R$'):
+            pm = act.getPackageManager()
+            info = pm.getApplicationInfo(pkgname, 0)
+            return type('R', (object,), {'icon': info.icon})
+
     classDict = {}
     cls_start_packagename = '.'.join(clsname.split('.')[:-1])
 
