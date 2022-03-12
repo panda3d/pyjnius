@@ -25,7 +25,7 @@ with open(join('jnius', '__init__.py')) as fd:
 
 SETUP_KWARGS = {
     'name': 'pyjnius',
-    'version': VERSION,
+    'version': VERSION + '+panda3d',
     'url': "https://github.com/kivy/pyjnius",
     'packages': ['jnius', 'android'],
     'py_modules': ['jnius_config', 'setup', 'setup_sdist', 'jnius.env'],
